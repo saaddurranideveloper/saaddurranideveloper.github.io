@@ -420,7 +420,7 @@ function hf(){const H=D.header,F=D.footer,S=D.site;
  const hc=(s,o,t)=>(o.bg?`${s}{background:${o.bg}}`:"")+(o.color?`${t}{color:${o.color}}`:"");$("#hfs").textContent=hc("#hd",H,"#hd .logo,#hd nav.links a:not(.cta)")+hc("footer",F,"footer .mono,footer a.txt");
  document.title=S.title;[...document.querySelectorAll("link[rel*=icon]")].forEach(l=>l.href=S.favicon)}
 /* ===== render ===== */
-function render(){const slug=(location.hash||"#home").slice(1),pg=D.pages.find(x=>x.slug==slug)||D.pages[0];
+function render(){const slug=(location.hash||"").slice(1),pg=D.pages.find(x=>x.slug==slug)||D.pages[0];
  hf();$("#app").innerHTML=pg.w.map(wrap).join("");$("#sty").textContent=flat(pg.w).map(css).join("");loadFonts(JSON.stringify(pg.w));initSl();initCd();if(!EDIT)document.querySelectorAll("[data-cnt]").forEach(e=>cio.observe(e));
  document.querySelectorAll(".reveal,.an").forEach(e=>io.observe(e));
  if(EDIT)document.querySelectorAll(".skill-bar").forEach(b=>b.style.width=b.dataset.level+"%");else document.querySelectorAll(".skill-bar").forEach(b=>bio.observe(b));
